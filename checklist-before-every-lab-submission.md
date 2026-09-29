@@ -1,4 +1,4 @@
-## Checklist
+## Checklist before every lab submission
 
 Prior to turning in your assignment, complete the following checklist in regards to the code checks. There are several errors in the starter files that you will need to fix.
 
