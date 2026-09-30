@@ -1,6 +1,10 @@
 # CS 463/563: Intro to Web Development - Lab Notebook Repository
 
-This repository contains starter files for the lab notebook. It includes exercises on the following topics:
+Derrick Tran
+Portland State University
+Fall 2026
+
+This repository contains practice files for the lab notebook. It includes exercises on the following topics:
 
 1. HTML
 2. Accessibility
