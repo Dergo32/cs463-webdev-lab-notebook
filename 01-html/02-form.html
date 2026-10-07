@@ -1,3 +1,7 @@
+<!-- Name: Derrick Tran -->
+<!-- Date: October 6, 2026 -->
+<!-- CS 463 Intro to web development -->
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +12,49 @@
   </head>
   <body>
     <main>
-      <!-- Add your code here -->
+      <!-- header for page -->
+      <header>
+        <h1>Roth IRA Calculator</h1>
+      </header>
+
+      <section id="Roth_calculator">
+        <!-- This is what happens when the user clicks the action button, usually to submit their input -->
+        <form action="/submitform">
+          <!-- it is important to remember that, by default -->
+          <!-- all elements in a form are inline elements that sit next to each other -->
+
+          <!-- we use divs to divide the page into blocks that are not next to each other -->
+          <div>
+            <!-- labels in forms always need to be properly matched using the id attribute -->
+            <!-- we put a break after the label to force a new line there -->
+            <label for="balance_field">Balance ($)</label><br />
+
+            <!-- the name attribute is similar to a variable name -->
+            <!-- it identifies the data that the user inputs when it is sent -->
+            <!-- the id attribute is to associate the field with the label -->
+            <input type="text" name="balance" id="balance_field" />
+          </div>
+          <!-- whitespace makes things easier to read -->
+          <br />
+          <div>
+            <label for="annual_field">Annual contribution (4)</label><br />
+            <input type="text" name="annual_contribution" id="annual_field" />
+          </div>
+          <br />
+          <!-- this is a radio button menu -->
+          <!-- this does not go into a div since it is not inline with the other elements -->
+          <fieldset>
+            <!-- this is the prompt for the radio buttons -->
+            <legend>Maximize contributions?</legend>
+
+            <!-- the button goes first, then the label -->
+            <!-- the value attribute is like a variable name -->
+            <!-- it keeps track of which option the user picked -->
+            <input type="radio" name="maximize" id="yes" value="yes" />
+            <label for="yes">Yes</label>
+          </fieldset>
+        </form>
+      </section>
     </main>
   </body>
 </html>
