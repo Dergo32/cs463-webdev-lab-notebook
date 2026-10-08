@@ -9,6 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Exercise 02 - Form</title>
+
+    <!-- It's generally not recommended to have CSS in the HTML file   -->
+    <!-- this is just simple styling to remove the border and padding that is automatically added -->
+    <style>
+      fieldset {
+        margin: 0;
+        border: 0;
+        padding: 0;
+      }
+    </style>
   </head>
   <body>
     <main>
@@ -45,6 +55,7 @@
           <!-- this does not go into a div since it is not inline with the other elements -->
           <fieldset>
             <!-- this is the prompt for the radio buttons -->
+            <!-- the legend is always a child of the fieldset; it is the caption for the entire set -->
             <legend>Maximize contributions?</legend>
 
             <!-- the button goes first, then the label -->
@@ -52,8 +63,62 @@
             <!-- it keeps track of which option the user picked -->
             <input type="radio" name="maximize" id="yes" value="yes" />
             <label for="yes">Yes</label>
+
+            <!-- the name attribute makes the choices part of the same menu, so you can't choose both -->
+            <input type="radio" name="maximize" id="no" value="no" />
+            <label for="no">No</label>
           </fieldset>
+
+          <br />
+
+          <!-- this is specifically a number input -->
+          <!-- name and id work the same as the other text boxes -->
+          <div>
+            <label for="rate_of_return">Expected rate of return (5)</label>
+            <br />
+            <input type="number" name="rate_value" id="rate_of_return" />
+          </div>
+
+          <br />
+
+          <div>
+            <label for="current_age">Current age</label>
+            <br />
+            <input type="number" name="current_age_value" id="current_age" />
+          </div>
+
+          <br />
+
+          <div>
+            <label for="retire_age">Retirement age</label>
+            <br />
+            <input type="number" name="retire_value" id="retire_age" />
+          </div>
+
+          <br />
+
+          <div>
+            <label for="tax_rate">Marginal tax rate (%)</label>
+            <br />
+            <input type="number" name="tax_value" id="tax_rate" />
+          </div>
+
+          <br />
+
+          <div>
+            <!-- Submit buttons must always have the type == submit -->
+            <input type="submit" value="Calculate" />
+
+            <!-- Reset buttons to clear the form must always have the type == reset -->
+            <input type="reset" value="Reset" />
+          </div>
         </form>
+
+        <!-- this note goes outside of the form element -->
+        <p>
+          This exercise is a simplified version of the Roth IRA Calculator at
+          <a href="https://www.calculator.net">Calculator.net</a>
+        </p>
       </section>
     </main>
   </body>
