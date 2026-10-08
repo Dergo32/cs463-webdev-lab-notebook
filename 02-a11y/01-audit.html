@@ -1,31 +1,75 @@
+<!-- Derrick Tran -->
+<!-- CS 463 Intro To Web Development -->
+<!-- October 7, 2026 -->
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercise 01 - Audit</title>
+
+    <!-- styling added for radio button fieldset -->
+    <style>
+      fieldset {
+        margin: 0;
+        border: 0;
+        padding: 0;
+      }
+    </style>
   </head>
+
+  <!-- Added a descriptive header to the page -->
+  <header>
+    <h1>Payment Information Form</h1>
+  </header>
+
+  <!-- Accessibility Audit Exercise -->
+  <!-- Done using Wave extension -->
+
   <body>
     <form>
-      Name:<br />
-      <input type="text" name="name" /><br /><br />
-      Address:<br />
-      <input type="text" name="address" />
-      <br /><br />
-      City:<br />
-      <input type="text" name="city" />
-      <br /><br />
-      Zip Code:<br />
-      <input type="text" name="zip" />
-      <br /><br />
-      Credit Card Type:<br />
-      <input type="radio" name="card" value="visa" /> Visa<br />
-      <input type="radio" name="card" value="mastercard" /> MasterCard<br />
-      <input type="radio" name="card" value="amex" /> American Express<br /><br />
-      Credit Card Number:<br />
-      <input type="text" name="cc_number" /><br /><br />
-      CVC:<br />
-      <input type="text" name="cvv" /><br /><br />
+      <!-- fixed missing form label -->
+      <label for="name">Name:</label> <br />
+      <input type="text" name="name" id="name" /><br /><br />
+
+      <!-- fixed missing form label -->
+      <label for="address">Address:</label> <br />
+      <input type="text" name="address" id="address" /><br /><br />
+
+      <!-- fixed missing form label -->
+      <label for="city">City:</label> <br />
+      <input type="text" name="city" id="city" /><br /><br />
+
+      <!-- fixed missing form label -->
+      <label for="zip">Zip Code:</label> <br />
+      <input type="text" name="zip" id="zip" /> <br /><br />
+
+      <!-- group of radio buttons, neatly organized into a fieldset -->
+      <!-- with properly associated labels -->
+      <fieldset>
+        <legend>Credit Card Type:</legend>
+
+        <input type="radio" name="card" id="visa" value="visa" />
+        <label for="visa">Visa</label><br />
+
+        <input type="radio" name="card" id="mastercard" value="mastercard" />
+        <label for="mastercard">MasterCard</label><br />
+
+        <input type="radio" name="card" id="amex" value="amex" />
+        <label for="amex">American Express</label>
+      </fieldset>
+
+      <br />
+
+      <!-- fixed missing form label -->
+      <label for="cc_number">Credit Card Number:</label><br />
+      <input type="text" name="cc_number" id="cc_number" /><br /><br />
+
+      <!-- fixed missing form label -->
+      <label for="cvv">CVC:</label><br />
+      <input type="text" name="cvv" id="cvv" /><br /><br />
+
       <input type="button" value="Submit" />
     </form>
   </body>
