@@ -8,19 +8,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Exercise 01 - Books</title>
-    <!-- TODO: move this to styles.css -->
-    <style>
-      table {
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-      table td,
-      table th {
-        padding: 6px;
-        border: 1px solid black;
-      }
-    </style>
+    <title>Exercise 01 - Books with CSS</title>
+
+    <!-- This is how you apply a CSS file to the HTML -->
+    <link rel="stylesheet" href="styles.css"/>
+
+    <!-- fonts can either go here or in css -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+
   </head>
   <body>
     <!-- Add your code here -->
@@ -29,7 +24,7 @@
       <header>
         <!-- An unordered list of links -->
         <!-- Each link is an internal target -->
-        <ul>
+        <ul class="navbar">
           <li><a href="#ASOIAF">ASOIAF Books</a></li>
           <li><a href="#first_edition_covers">First Edition Covers</a></li>
           <li><a href="#table_of_characters">Table of POV Characters</a></li>
