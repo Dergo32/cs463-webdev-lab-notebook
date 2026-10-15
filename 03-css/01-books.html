@@ -1,15 +1,189 @@
+<!-- Name: Derrick Tran -->
+<!-- Date: October 5 2026 -->
+<!-- CS 463 Intro to web development -->
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>CSS Exercise 01 - Books</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Exercise 01 - Books with CSS</title>
+
+    <!-- This is how you apply a CSS file to the HTML -->
+    <link rel="stylesheet" href="styles.css"/>
+
+    <!-- fonts can either go here or in css -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+
   </head>
   <body>
-    <!-- Start with the code from the HTML folder.
-      - Make sure to fix any issues in your HTML code.
-      - Add classes to style the elements on the page. -->
+    <!-- Add your code here -->
+    <main>
+      <!-- Don't forget abput semantics! -->
+      <header>
+        <!-- An unordered list of links -->
+        <!-- Each link is an internal target -->
+        <ul class="navbar">
+          <li><a href="#ASOIAF">ASOIAF Books</a></li>
+          <li><a href="#first_edition_covers">First Edition Covers</a></li>
+          <li><a href="#table_of_characters">Table of POV Characters</a></li>
+        </ul>
+
+        <!-- Main heading for the whole webpage -->
+        <h1>A Song of Ice and Fire - George R.R. Martin</h1>
+      </header>
+
+      <!-- See how the section semantic is what makes this a linkable internal target -->
+      <section id="ASOIAF">
+        <h2>A Song of Ice and Fire universe</h2>
+
+        <!-- An unordered list with ordered lists inside of it -->
+        <ul>
+          <li>A Song of Ice and Fire series:</li>
+          <!-- The list inside of the list is not actually a list item - there's no extra bullet point -->
+          <!-- It just pretends to be part of the outer list -->
+          <ol>
+            <li>A Game of Thrones (1996)</li>
+            <!-- formatting like this is clearer and readable -->
+            <li>A Clash of Kings (1998)</li>
+            <li>A Storm of Swords (2000)</li>
+            <li>A Feast for Crows (2005)</li>
+            <li>A Dance with Dragons (2011)</li>
+          </ol>
+
+          <li>A Knight of the Seven Kingdoms (2015)</li>
+          <ol>
+            <li>The Hedge Knight (1998)</li>
+            <li>The Sworn Sword (2003)</li>
+            <li>The Mystery Knight (2010)</li>
+          </ol>
+
+          <li>Fire & Blood (2018)</li>
+        </ul>
+      </section>
+
+      <!-- Book cover image section -->
+      <section id="first_edition_covers">
+        <h2>First Edition Covers</h2>
+        <!-- All of these images are different sizes, but if we force the size to be something reasonable and consistent -->
+        <!-- The images will look the same size on the webpage, which is a neat look -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/9/93/AGameOfThrones.jpg"
+          width="200"
+          height="300"
+          alt="the cover of the book A Game Of Thrones by George R.R. Martin (1996)"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/3/39/AClashOfKings.jpg"
+          width="200"
+          height="300"
+          alt="the cover of the book A Clash Of Kings by George R.R. Martin (1998)"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/2/24/AStormOfSwords.jpg"
+          width="200"
+          height="300"
+          alt="the cover of the book A Storm Of Swords by George R.R. Martin (2000)"
+        />
+      </section>
+
+      <!-- This section demonstrates making a table in html -->
+      <section id="table_of_characters">
+        <h2>POV Character with the Most Chapters in Each Book</h2>
+
+        <!-- Good reference when making tables in html: -->
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table -->
+        <table>
+          <!-- The header part of the table -->
+          <thead>
+            <!-- tables are made of rows (tr) -->
+
+            <!-- this is row 1 -->
+            <tr>
+              <!-- th is table header; text that is not data -->
+              <th rowspan="2">POV Character</th>
+              <th colspan="5">Books</th>
+              <th rowspan="2">Total Chapters</th>
+            </tr>
+
+            <!-- this is row 2 -->
+            <tr>
+              <th>A Game of Thrones</th>
+              <th>A Clash of Kings</th>
+              <th>A Storm of Swords</th>
+              <th>A Feast for Crows</th>
+              <th>A Dance with Dragons</th>
+            </tr>
+          </thead>
+
+          <!-- The body of the table -->
+          <tbody>
+            <!-- always put the row first, then the element -->
+            <tr>
+              <td>Eddard Stark</td>
+              <td>15</td>
+              <td colspan="4">n/a</td>
+              <td>15</td>
+            </tr>
+
+            <tr>
+              <td>Tyrion Lannister</td>
+              <td>9</td>
+              <td>15</td>
+              <td>11</td>
+              <td>n/a</td>
+              <td>12</td>
+              <td>47</td>
+            </tr>
+
+            <!-- row 5 -->
+            <tr>
+              <td>Arya Stark</td>
+              <td>5</td>
+              <td>10</td>
+              <td>13</td>
+              <td>3</td>
+              <td>2</td>
+              <td>33</td>
+            </tr>
+
+            <!-- row 6 -->
+            <tr>
+              <td>Cersei Lannister</td>
+              <td colspan="3">n/a</td>
+              <td>10</td>
+              <td>n/a</td>
+              <td>10</td>
+            </tr>
+
+            <!-- row 7 -->
+            <tr>
+              <td>Jon Snow</td>
+              <td>9</td>
+              <td>8</td>
+              <td>12</td>
+              <td>n/a</td>
+              <td>13</td>
+              <td>42</td>
+            </tr>
+          </tbody>
+
+          <!-- The footer of the table -->
+          <tfoot>
+            <tr>
+              <!-- by default headers are center aligned -->
+              <!-- we need this to be left aligned -->
+              <th style="text-align: left" colspan="6">
+                Total POV Chapters (Displayed)
+              </th>
+
+              <!-- we use inline css to make this data bolded -->
+              <td style="font-weight: bold">147</td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
   </body>
 </html>
