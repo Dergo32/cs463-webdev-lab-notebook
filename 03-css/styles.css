@@ -1,19 +1,52 @@
 /* Derrick Tran */
-/* CSS for 01-books.html */
+/* CSS for 01-books.html 
+AND for 02-form.html 
 
-/* the colors used in this exercise */ 
+This means we have to be really specific with our styling! */
+
+/* the custom colors used in this exercise */
 :root {
   --ice-blue-juvie: #8fbcd4;
   --gothic-gray-blue: #6f8796;
   --dark-slate-infinity: #1f2a33;
 }
 
+.nav {
+  background-color: var(--dark-slate-infinity);
+  color: var(--ice-blue-juvie); /* note this isn't enough to override the browser default */ 
+}
+
+/* overrides the browser style */
+.nav-link {
+  color: var(--ice-blue-juvie);
+}
+
+.main-heading {
+  color: var(--gothic-gray-blue);
+}
+
+/* here is where we set the font for the body text */
+body {
+  /* Always have a backup font setting in case your chosen font doesn't load */
+  font-family: Arial, sans-serif;
+}
+
+/* everything that should have the custom font will therefore have this class */
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+/* table border */
 table {
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+/* data cell in the table */
 table td,
+
+/* a header in the table */ 
 table th {
-    padding: 6px;
-    border: 1px solid black;
+  padding: 6px;
+  border: 1px solid black;
 }

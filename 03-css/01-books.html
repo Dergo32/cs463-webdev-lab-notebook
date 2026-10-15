@@ -2,6 +2,8 @@
 <!-- Date: October 14 2026 -->
 <!-- CS 463 Intro to web development -->
 
+<!-- Major change for this exercise: everything is grouped into classes -->
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,32 +13,45 @@
     <title>Exercise 01 - Books with CSS</title>
 
     <!-- This is how you apply a CSS file to the HTML -->
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css" />
 
     <!-- fonts can either go here or in css -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Add your code here -->
     <main>
       <!-- Don't forget abput semantics! -->
-      <header>
+      <header class="font-cinzel">
         <!-- An unordered list of links -->
         <!-- Each link is an internal target -->
-        <ul class="navbar">
-          <li><a href="#ASOIAF">ASOIAF Books</a></li>
-          <li><a href="#first_edition_covers">First Edition Covers</a></li>
-          <li><a href="#table_of_characters">Table of POV Characters</a></li>
-        </ul>
+        <nav class="nav">
+          <!-- it's good practice to add specific classes everywhere so you can easily change styles -->
+          <ul class="nav-list">
+            <li><a class="nav-link" href="#ASOIAF">ASOIAF Books</a></li>
+            <li>
+              <a class="nav-link" href="#first_edition_covers"
+                >First Edition Covers</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="#table_of_characters"
+                >Table of POV Characters</a
+              >
+            </li>
+          </ul>
+        </nav>
 
         <!-- Main heading for the whole webpage -->
-        <h1>A Song of Ice and Fire - George R.R. Martin</h1>
+        <h1 class="main-heading">A Song of Ice and Fire - George R.R. Martin</h1>
       </header>
 
       <!-- See how the section semantic is what makes this a linkable internal target -->
       <section id="ASOIAF">
-        <h2>A Song of Ice and Fire universe</h2>
+        <h2 class="font-cinzel">A Song of Ice and Fire universe</h2>
 
         <!-- An unordered list with ordered lists inside of it -->
         <ul>
@@ -65,7 +80,7 @@
 
       <!-- Book cover image section -->
       <section id="first_edition_covers">
-        <h2>First Edition Covers</h2>
+        <h2 class="font-cinzel">First Edition Covers</h2>
         <!-- All of these images are different sizes, but if we force the size to be something reasonable and consistent -->
         <!-- The images will look the same size on the webpage, which is a neat look -->
         <img
@@ -90,7 +105,9 @@
 
       <!-- This section demonstrates making a table in html -->
       <section id="table_of_characters">
-        <h2>POV Character with the Most Chapters in Each Book</h2>
+        <h2 class="font-cinzel">
+          POV Character with the Most Chapters in Each Book
+        </h2>
 
         <!-- Good reference when making tables in html: -->
         <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table -->
