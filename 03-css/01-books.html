@@ -21,44 +21,44 @@
       rel="stylesheet"
     />
   </head>
+  <!-- Don't forget abput semantics! -->
+  <header class="font-cinzel">
+    <!-- An unordered list of links -->
+    <!-- Each link is an internal target -->
+    <nav class="nav">
+      <!-- it's good practice to add specific classes everywhere so you can easily change styles -->
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="#ASOIAF">ASOIAF Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#first_edition_covers"
+            >First Edition Covers</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#table_of_characters"
+            >Table of POV Characters</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </header>
   <body>
-    <!-- Add your code here -->
-    <main>
-      <!-- Don't forget abput semantics! -->
-      <header class="font-cinzel">
-        <!-- An unordered list of links -->
-        <!-- Each link is an internal target -->
-        <nav class="nav">
-          <!-- it's good practice to add specific classes everywhere so you can easily change styles -->
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a class="nav-link" href="#ASOIAF">ASOIAF Books</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#first_edition_covers"
-                >First Edition Covers</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#table_of_characters"
-                >Table of POV Characters</a
-              >
-            </li>
-          </ul>
-        </nav>
-
-        <!-- Main heading for the whole webpage -->
-        <h1 class="main-heading">
-          A Song of Ice and Fire - George R.R. Martin
-        </h1>
-      </header>
+    <!-- main represents the main actual content of the page -->
+    <main class="books-container">
+      <!-- Main heading for the whole webpage -->
+      <!-- need to put this inside main so it moves along with the rest of the content -->
+      <h1 class="main-heading font-cinzel">
+        A Song of Ice and Fire - George R.R. Martin
+      </h1>
 
       <!-- See how the section semantic is what makes this a linkable internal target -->
       <section id="ASOIAF">
-        <h2 class="font-cinzel">A Song of Ice and Fire universe</h2>
+        <h2 class="h2 font-cinzel">ASOIAF Books</h2>
 
         <!-- An unordered list with ordered lists inside of it -->
-        <ul>
+        <ul class="books-list">
           <li>A Song of Ice and Fire series:</li>
           <!-- The list inside of the list is not actually a list item - there's no extra bullet point -->
           <!-- It just pretends to be part of the outer list -->
@@ -83,39 +83,43 @@
       </section>
 
       <!-- Book cover image section -->
-      <section id="first_edition_covers">
-        <h2 class="font-cinzel">First Edition Covers</h2>
+      <section id="first_edition_covers" class="covers">
+        <h2 class="h2 font-cinzel">First Edition Covers</h2>
         <!-- All of these images are different sizes, but if we force the size to be something reasonable and consistent -->
         <!-- The images will look the same size on the webpage, which is a neat look -->
-        <img
-          src="https://upload.wikimedia.org/wikipedia/en/9/93/AGameOfThrones.jpg"
-          width="200"
-          height="300"
-          alt="the cover of the book A Game Of Thrones by George R.R. Martin (1996)"
-        />
-        <img
-          src="https://upload.wikimedia.org/wikipedia/en/3/39/AClashOfKings.jpg"
-          width="200"
-          height="300"
-          alt="the cover of the book A Clash Of Kings by George R.R. Martin (1998)"
-        />
-        <img
-          src="https://upload.wikimedia.org/wikipedia/en/2/24/AStormOfSwords.jpg"
-          width="200"
-          height="300"
-          alt="the cover of the book A Storm Of Swords by George R.R. Martin (2000)"
-        />
+
+        <!-- div added for styling -->
+        <div class="images-container">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/9/93/AGameOfThrones.jpg"
+            width="200"
+            height="300"
+            alt="the cover of the book A Game Of Thrones by George R.R. Martin (1996)"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/3/39/AClashOfKings.jpg"
+            width="200"
+            height="300"
+            alt="the cover of the book A Clash Of Kings by George R.R. Martin (1998)"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/2/24/AStormOfSwords.jpg"
+            width="200"
+            height="300"
+            alt="the cover of the book A Storm Of Swords by George R.R. Martin (2000)"
+          />
+        </div>
       </section>
 
       <!-- This section demonstrates making a table in html -->
       <section id="table_of_characters">
-        <h2 class="font-cinzel">
+        <h2 class="h2 font-cinzel">
           POV Character with the Most Chapters in Each Book
         </h2>
 
         <!-- Good reference when making tables in html: -->
         <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table -->
-        <table>
+        <table class="books-table">
           <!-- The header part of the table -->
           <thead>
             <!-- tables are made of rows (tr) -->
@@ -123,18 +127,18 @@
             <!-- this is row 1 -->
             <tr>
               <!-- th is table header; text that is not data -->
-              <th rowspan="2">POV Character</th>
-              <th colspan="5">Books</th>
-              <th rowspan="2">Total Chapters</th>
+              <th class="top-header" rowspan="2">POV Character</th>
+              <th class="top-header" colspan="5">Books</th>
+              <th class="top-header" rowspan="2">Total Chapters</th>
             </tr>
 
             <!-- this is row 2 -->
             <tr>
-              <th>A Game of Thrones</th>
-              <th>A Clash of Kings</th>
-              <th>A Storm of Swords</th>
-              <th>A Feast for Crows</th>
-              <th>A Dance with Dragons</th>
+              <th class="top-header">A Game of Thrones</th>
+              <th class="top-header">A Clash of Kings</th>
+              <th class="top-header">A Storm of Swords</th>
+              <th class="top-header">A Feast for Crows</th>
+              <th class="top-header">A Dance with Dragons</th>
             </tr>
           </thead>
 

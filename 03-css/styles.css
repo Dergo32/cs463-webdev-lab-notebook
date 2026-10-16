@@ -6,9 +6,13 @@ This means we have to be really specific with our styling! */
 
 /* the custom colors used in this exercise */
 :root {
+  /* a slightly gray shade of black */
+  --text-color: #333333;
+
   --ice-blue-juvie: #8fbcd4;
   --gothic-gray-blue: #6f8796;
   --dark-slate-infinity: #1f2a33;
+  --gray-border: #cccccc;
 }
 
 /* here is where we set the font for the body text */
@@ -16,13 +20,19 @@ This means we have to be really specific with our styling! */
 body {
   /* Always have a backup font setting in case your chosen font doesn't load */
   font-family: Arial, sans-serif;
-  margin: 0;  /* we need to set this to 0 so the nav bar is at the very top of the page */
+  margin: 0; /* we need to set this to 0 so the nav bar is at the very top of the page */
+  color: var(--text-color);
+
+  /* more line height so it's easier to read  */
+  line-height: 1.6;
 }
 
 /* navigation bar background */
 .nav {
   background-color: var(--dark-slate-infinity);
-  color: var(--ice-blue-juvie); /* note this isn't enough to override the browser default */ 
+  color: var(
+    --ice-blue-juvie
+  ); /* note this isn't enough to override the browser default */
 }
 
 /* this is how we remove the list styling from the list of navigation links */
@@ -43,8 +53,8 @@ body {
 /* by default, list items are blocks; we need to change this so they are next to each other */
 /* we don't use inline, we use inline block. That way we can set it to an exact size */
 .nav-item {
-  display: inline-block;  
-  margin: 0 1rem /* to deal with different content sizes, we add extra space to the smaller items using a margin */
+  display: inline-block;
+  margin: 0 1rem; /* to deal with different content sizes, we add extra space to the smaller items using a margin */
 }
 
 /* overrides the browser style */
@@ -68,8 +78,11 @@ body {
 
   /* a 0.2 second fade transition (the background changing and the text color changing)
    when the user hovers over */
-  /* looks less jarring to some users than an instant hover effect */
-  transition: background 0.2s, color 0.2s;
+  /* looks less jarring to some users than an instant hover effect
+  and also looks more professional and nice */
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 /* the user still needs to know if they are hovering over a link */
@@ -80,30 +93,81 @@ body {
   color: var(--dark-slate-infinity);
 }
 
+/* books container is the main section in the books page */
+.books-container {
+  width: 800px;
+
+  /* automatic margin for left and right sides */
+  /* this is what makes the content on the page look centered */
+  margin: 0 auto;
+
+  /* padding to move the content away from main's border */
+  padding: 0 1rem;
+}
+
 .main-heading {
+  text-align: center;
   color: var(--gothic-gray-blue);
+
+  /* margin adds some space to top and bottom */
+  margin: 2rem 0;
 }
 
 /* everything that should have the custom font will therefore have this class */
 .font-cinzel {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
+/* SECTION STYLES */
 
+.h2 {
+  /* an underline separating each section of the page */
+  border-bottom: 1px solid var(--gray-border);
+}
+
+/* book list styling */
+/* this is how we avoid adding a class for every single list item */
+.books-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* make sure to apply the extra spacing to the ordered lists inside the list */
+.books-list ol {
+  margin-top: 0.4rem;
+}
+
+/* image styling */
+.images-container {
+  /* center the images */
+  text-align: center;
+}
+
+.images-container img {
+  /* make the image corners rounded */
+  border-radius: 5px;
+
+  /* the scaling animation goes smoothly for 0.2 seconds */
+  transition: transform 0.2s ease;
+}
+
+.images-container img:hover {
+  /* when the user hovers over an image, it gets slightly bigger */
+  transform: scale(1.1);
+}
 
 /* TABLE STYLES */
 
-/* table border */
-table {
-  border: 1px solid black;
+/* styles for everything in the table */
+.books-table {
+  /* set the style of the table lines */
   border-collapse: collapse;
 }
 
-/* data cell in the table */
-table td,
+.books-table th,
+.books-table td {
+  border: 1px solid var(--gray-border);
+  text-align: center;
 
-/* a header in the table */ 
-table th {
-  padding: 6px;
-  border: 1px solid black;
+  /* more space around the text */
+  padding: 0.5rem;
 }
