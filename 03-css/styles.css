@@ -11,30 +11,87 @@ This means we have to be really specific with our styling! */
   --dark-slate-infinity: #1f2a33;
 }
 
+/* here is where we set the font for the body text */
+/* remeber that the body includes ALL the content of the page, including the nav bar */
+body {
+  /* Always have a backup font setting in case your chosen font doesn't load */
+  font-family: Arial, sans-serif;
+  margin: 0;  /* we need to set this to 0 so the nav bar is at the very top of the page */
+}
+
+/* navigation bar background */
 .nav {
   background-color: var(--dark-slate-infinity);
   color: var(--ice-blue-juvie); /* note this isn't enough to override the browser default */ 
 }
 
+/* this is how we remove the list styling from the list of navigation links */
+.nav-list {
+  margin: 0;
+
+  /* make the entire list center aligned */
+  text-align: center;
+
+  /* add more nice spacing around the entire list */
+  padding: 1rem;
+
+  /* removes extra space and bullet points to the left from the list styling */
+  padding-left: 0;
+  list-style: none;
+}
+
+/* by default, list items are blocks; we need to change this so they are next to each other */
+/* we don't use inline, we use inline block. That way we can set it to an exact size */
+.nav-item {
+  display: inline-block;  
+  margin: 0 1rem /* to deal with different content sizes, we add extra space to the smaller items using a margin */
+}
+
 /* overrides the browser style */
+/* this is the anchor inside the list item */
 .nav-link {
+  /* removes the underline so it doesn't look like a link */
+  text-decoration: none;
+
+  /* adds padding so it looks better when user hovers over */
+  /* top and bottom | left and right */
+  padding: 0.3rem 0.5rem;
+
+  /* this makes it have nice rounded corners! */
+  border-radius: 4px;
+
+  /* bolded links are more clear */
+  font-weight: 500;
+
+  /* sets the color of the text */
   color: var(--ice-blue-juvie);
+
+  /* a 0.2 second fade transition (the background changing and the text color changing)
+   when the user hovers over */
+  /* looks less jarring to some users than an instant hover effect */
+  transition: background 0.2s, color 0.2s;
+}
+
+/* the user still needs to know if they are hovering over a link */
+/* so use the hover pseudo class */
+.nav-link:hover {
+  /* a good way is to switch the background color and the text color */
+  background-color: var(--ice-blue-juvie);
+  color: var(--dark-slate-infinity);
 }
 
 .main-heading {
   color: var(--gothic-gray-blue);
 }
 
-/* here is where we set the font for the body text */
-body {
-  /* Always have a backup font setting in case your chosen font doesn't load */
-  font-family: Arial, sans-serif;
-}
-
 /* everything that should have the custom font will therefore have this class */
 .font-cinzel {
   font-family: 'Cinzel', serif;
 }
+
+
+
+/* TABLE STYLES */
 
 /* table border */
 table {
