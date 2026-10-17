@@ -8,11 +8,18 @@ This means we have to be really specific with our styling! */
 :root {
   /* a slightly gray shade of black */
   --text-color: #333333;
+  --body-background-color: #f7f7f7;
 
   --ice-blue-juvie: #8fbcd4;
   --gothic-gray-blue: #6f8796;
   --dark-slate-infinity: #1f2a33;
   --gray-border: #cccccc;
+
+  /* color of the table headers is slightly darker */
+  --table-header-background: #eceaea;
+
+  /* color of table data rows (some) */
+  --table-background: #fafafa;
 }
 
 /* here is where we set the font for the body text */
@@ -21,6 +28,7 @@ body {
   /* Always have a backup font setting in case your chosen font doesn't load */
   font-family: Arial, sans-serif;
   margin: 0; /* we need to set this to 0 so the nav bar is at the very top of the page */
+  background-color: var(--body-background-color);
   color: var(--text-color);
 
   /* more line height so it's easier to read  */
@@ -101,6 +109,9 @@ body {
   /* this is what makes the content on the page look centered */
   margin: 0 auto;
 
+  /* we still need to have some space at the bottom */
+  margin-bottom: 50px;
+
   /* padding to move the content away from main's border */
   padding: 0 1rem;
 }
@@ -119,6 +130,10 @@ body {
 }
 
 /* SECTION STYLES */
+.section {
+  /* add some space between each section of the page */
+  margin-top: 2rem;
+}
 
 .h2 {
   /* an underline separating each section of the page */
@@ -170,4 +185,22 @@ body {
 
   /* more space around the text */
   padding: 0.5rem;
+}
+
+/* background color only for every second row in the table */
+/* psuedo class really helps here */
+.books-table tr:nth-child(even)
+{
+  background-color: var(--table-background);
+}
+
+/* the headings in the table */
+.top-header {
+  background-color: var(--table-header-background);
+}
+
+/* styling has been moved into here */
+.table-footer {
+  font-weight: bond;
+  background-color: var(--table-header-background);
 }

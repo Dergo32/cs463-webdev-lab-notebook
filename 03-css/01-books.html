@@ -54,7 +54,7 @@
       </h1>
 
       <!-- See how the section semantic is what makes this a linkable internal target -->
-      <section id="ASOIAF">
+      <section id="ASOIAF" class="section">
         <h2 class="h2 font-cinzel">ASOIAF Books</h2>
 
         <!-- An unordered list with ordered lists inside of it -->
@@ -83,7 +83,7 @@
       </section>
 
       <!-- Book cover image section -->
-      <section id="first_edition_covers" class="covers">
+      <section id="first_edition_covers" class="covers section">
         <h2 class="h2 font-cinzel">First Edition Covers</h2>
         <!-- All of these images are different sizes, but if we force the size to be something reasonable and consistent -->
         <!-- The images will look the same size on the webpage, which is a neat look -->
@@ -112,7 +112,7 @@
       </section>
 
       <!-- This section demonstrates making a table in html -->
-      <section id="table_of_characters">
+      <section id="table_of_characters" class="section">
         <h2 class="h2 font-cinzel">
           POV Character with the Most Chapters in Each Book
         </h2>
@@ -195,16 +195,14 @@
           </tbody>
 
           <!-- The footer of the table -->
-          <tfoot>
+          <tfoot class="table-footer">
             <tr>
-              <!-- by default headers are center aligned -->
-              <!-- we need this to be left aligned -->
-              <th style="text-align: left" colspan="6">
+              <th colspan="6">
                 Total POV Chapters (Displayed)
               </th>
 
               <!-- we use inline css to make this data bolded -->
-              <td style="font-weight: bold">147</td>
+              <td>147</td>
             </tr>
           </tfoot>
         </table>
