@@ -20,6 +20,10 @@ This means we have to be really specific with our styling! */
 
   /* color of table data rows (some) */
   --table-background: #fafafa;
+
+  /* colors for the ira form */
+  --form-background: #161678;
+  --form-color: #ffffff;
 }
 
 /* here is where we set the font for the body text */
@@ -189,8 +193,7 @@ body {
 
 /* background color only for every second row in the table */
 /* psuedo class really helps here */
-.books-table tr:nth-child(even)
-{
+.books-table tr:nth-child(even) {
   background-color: var(--table-background);
 }
 
@@ -203,4 +206,45 @@ body {
 .table-footer {
   font-weight: bond;
   background-color: var(--table-header-background);
+}
+
+/* STYLING FOR THE IRA FORM */
+
+.form-body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: var(--form-background);
+
+}
+
+.calc-form-section {
+  display: inline-block;
+  margin: 100px auto;
+  
+  padding: 0.5rem 1rem;
+  background-color: var(--form-color);
+  max-width: 400px;
+  
+  /* make corners rounded */
+  border-radius: 10px;
+}
+
+.ira-form {
+  line-height: 2;
+}
+
+.form-field {
+  float: right;
+}
+
+.calc-header {
+  color: var(--form-background);
+  text-align: center;
+}
+
+.radio-buttons {
+  line-height: 1.6;
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
