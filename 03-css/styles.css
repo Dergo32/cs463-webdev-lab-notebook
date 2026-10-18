@@ -204,7 +204,7 @@ body {
 
 /* styling has been moved into here */
 .table-footer {
-  font-weight: bond;
+  font-weight: bold;
   background-color: var(--table-header-background);
 }
 
@@ -214,17 +214,23 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   background-color: var(--form-background);
+  color: var(--text-color);
+}
 
+/* finally got the form to be centered without centering the text */
+.form-body > main {
+  display: flex;
+  justify-content: center;
 }
 
 .calc-form-section {
-  display: inline-block;
-  margin: 100px auto;
-  
-  padding: 0.5rem 1rem;
+  /* move the form away from the top */
+  margin: 10% auto;
+
+  padding: 1rem 2rem;
   background-color: var(--form-color);
   max-width: 400px;
-  
+
   /* make corners rounded */
   border-radius: 10px;
 }
@@ -233,18 +239,80 @@ body {
   line-height: 2;
 }
 
+/* the text boxes in the form */
 .form-field {
+  /* move the input boxes to the right */
   float: right;
+  width: 35%;
+
+  /* redesign the border */
+  border: 1px solid var(--gray-border);
+  border-radius: 6px;
+
+  /* this padding moves the input text away from the border */
+  /* it also makes the text boxes bigger */
+  padding: 0.5rem;
 }
 
+/* main form header */
 .calc-header {
   color: var(--form-background);
   text-align: center;
 }
 
+/* fieldset styling */
 .radio-buttons {
   line-height: 1.6;
   margin: 0;
   border: 0;
   padding: 0;
+}
+
+/* move the buttons to the left */
+.form-radio-btns {
+  margin-left: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.form-radio-btns > div {
+  display: inline;
+  padding: 0 5px;
+}
+
+.radio-buttons > legend {
+  padding: 0;
+}
+
+.ira-form > div {
+  margin: 0.5rem 0;
+}
+
+/* styles for the main form buttons */
+.btn {
+  /* needed to change the size of the buttons */
+  display: inline-block;
+  width: 49%;
+  padding: 0.65rem 1rem;
+  border: 0;
+  border-radius: 6px;
+
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* form submit */
+.btn-submit {
+  background-color: var(--form-background);
+  color: var(--form-color);
+}
+
+/* note at end of form */
+.form-note {
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+/* link at end of note */
+.form-note a {
+  color: var(--form-background);
 }
