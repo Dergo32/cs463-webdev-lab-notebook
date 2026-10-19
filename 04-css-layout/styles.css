@@ -1,13 +1,40 @@
+/* Derrick Tran */
+/* October 19, 2026 */
+/* Flexbox exercises for CS 463 - Lab Notebook */
+
 :root {
   --purple: #800080;
+  --lavender: #e6e6fa;
   --light-text-color: #fefefe;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+
+  /* need to make sure there's no strange margin to the body that adds a scroll bar */
+  margin: 0;
+  padding: 0;
 }
 
 /* Exercise 01 - Center */
+.container {
+  background-color: var(--lavender);
+
+  display: flex;
+
+  /* to vertically center the item, the container needs a set height */
+  /* 100vh means 100% of the viewport */
+  height: 100vh;
+
+  /* horizontal center */
+  justify-content: center;
+
+  /* vertical center */
+  align-items: center;
+}
+
+/* this is the flex child */
+/* we also need to center the text inside of the div */
 .box {
   width: 200px;
   height: 100px;
@@ -16,6 +43,11 @@ body {
   color: var(--light-text-color);
   font-size: 1.75rem;
   text-align: center;
+
+  /* centering the text inside; the children */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
