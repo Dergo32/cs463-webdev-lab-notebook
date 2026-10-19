@@ -24,6 +24,7 @@ This means we have to be really specific with our styling! */
   /* colors for the ira form */
   --form-background: #161678;
   --form-color: #ffffff;
+  --form-background-dark: #0b0b4f;
 }
 
 /* here is where we set the font for the body text */
@@ -304,6 +305,11 @@ body {
 .btn-submit {
   background-color: var(--form-background);
   color: var(--form-color);
+}
+
+/* user interacting with button */
+.btn-submit:hover {
+  background-color: var(--form-background-dark);
 }
 
 /* note at end of form */
