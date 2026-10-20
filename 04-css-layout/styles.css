@@ -71,6 +71,54 @@ h1 {
 }
 
 /* Exercise 02 - Flexbox */
+/* style the page  */
+.game-showcase-body {
+  font-family: Arial, sans-serif;
+  background: white;
+  color: black;
+  margin: 0;
+}
+
+.top-of-page {
+  display: flex;
+  background: black;
+  color: white;
+  padding: 15px;
+}
+
+.bottom-of-page {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+.navigation {
+  background: black;
+  padding: 10px;
+  text-align: right;
+}
+
+.navigation a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  color: green;
+  text-decoration: underline;
+}
+
+.page-area {
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+img {
+  max-width: 300px;
+  display: block;
+}
 
 /* Exercise 03 - CSS Grid */
 
