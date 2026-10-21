@@ -10,7 +10,7 @@
 
   /* colors for game showcase page */
   --game-page-background-color: #121212;
-  --game-link-hover-color: green;
+  --game-link-hover-color: #32cd32;
   --game-page-light-text-color: #fefefe;
 }
 
@@ -86,40 +86,43 @@ to set each color for the page */
   font-family: Arial, sans-serif;
   background: white;
   color: var(--game-page-background-color);
-
 }
 
 /* the top of the page includes both
 the header and the navigation */
+/* in the html, the navigation needed to be part
+of the header */
 .top-of-page {
   background: var(--game-page-background-color);
-  color: white;
-  padding: 15px;
+  color: var(--light-text-color);
 
   /* this is a flex container */
   /* the container does the alignment; you don't set it on the items! */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
 }
 
 /* the footer */
 .bottom-of-page {
   background: var(--game-page-background-color);
   color: var(--game-page-light-text-color);
-  text-align: center;
-  padding: 15px;
 
-  /* flex styling */
+  /* min height so it's more than 1 line in height */
+  min-height: 100px;
 
-  /* this lets the flex item grow to fill the space */
-  flex-grow: 1;
+  /* flexbox is better than text align */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.navigation {  
-  background: var(--game-page-background-color);
-  padding: 10px;
-  text-align: right;
+/* this has more control than just aligning the text to the right */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 /* the links when they are not hovered */
@@ -127,13 +130,20 @@ the header and the navigation */
   color: var(--game-page-light-text-color);
   margin: 0 10px;
   text-decoration: none;
+
+  /* this doesn't completely fix the hover effect forcing
+  the links to jump up, but it should help */
+  /* padding-bottom: 0.25rem; */
+
+  /* this stops the links from jumping around */
+  border-bottom: 3px solid var(--game-page-background-color);
 }
 
 .navigation a:hover {
   color: var(--game-link-hover-color);
 
   /* the line is not a text underline, it is a border! */
-
+  border-bottom: 3px solid var(--game-link-hover-color);
 }
 
 /* styling the main content of the page */
@@ -144,7 +154,11 @@ the header and the navigation */
 
   /* the space between the cards
   this is for flexbox */
-  gap: 10px;
+  gap: 1rem;
+
+  /* define the margins around the content */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* this styling applies to every section of the page */
@@ -156,14 +170,22 @@ the header and the navigation */
   padding: 20px;
   border: 1px solid var(--game-page-background-color);
   border-radius: 6px;
-
-  /* define the margins around each card on the page */
-  margin-bottom: 20px;
 }
 
-.game-showcase-body img {
-  max-width: 200px;
-  display: block;
+/* figures for each card */
+.card-figure {
+  /* auto margin is still a good way to center elements */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.card-figure img {
+  margin: 0 auto;
+}
+
+.card-figure figcaption {
+  /* have some space between the image and its caption */
+  margin-top: 1rem;
 }
 
 /* Exercise 03 - CSS Grid */
