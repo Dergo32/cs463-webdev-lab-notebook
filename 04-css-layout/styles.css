@@ -2,10 +2,16 @@
 /* October 19, 2026 */
 /* Flexbox exercises for CS 463 - Lab Notebook */
 
+/* always define your colors here using variables */
 :root {
   --purple: #800080;
   --lavender: #e6e6fa;
   --light-text-color: #fefefe;
+
+  /* colors for game showcase page */
+  --game-page-background-color: #121212;
+  --game-link-hover-color: green;
+  --game-page-light-text-color: #fefefe;
 }
 
 body {
@@ -72,51 +78,91 @@ h1 {
 
 /* Exercise 02 - Flexbox */
 /* style the page  */
+
+/* note: ideally you want to use a single variable at the root
+to set each color for the page */
+
 .game-showcase-body {
   font-family: Arial, sans-serif;
   background: white;
-  color: black;
-  margin: 0;
+  color: var(--game-page-background-color);
+
 }
 
+/* the top of the page includes both
+the header and the navigation */
 .top-of-page {
-  display: flex;
-  background: black;
+  background: var(--game-page-background-color);
   color: white;
   padding: 15px;
+
+  /* this is a flex container */
+  /* the container does the alignment; you don't set it on the items! */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+/* the footer */
 .bottom-of-page {
-  background: black;
-  color: white;
+  background: var(--game-page-background-color);
+  color: var(--game-page-light-text-color);
   text-align: center;
   padding: 15px;
+
+  /* flex styling */
+
+  /* this lets the flex item grow to fill the space */
+  flex-grow: 1;
 }
 
-.navigation {
-  background: black;
+.navigation {  
+  background: var(--game-page-background-color);
   padding: 10px;
   text-align: right;
 }
 
+/* the links when they are not hovered */
 .navigation a {
-  color: white;
+  color: var(--game-page-light-text-color);
   margin: 0 10px;
   text-decoration: none;
 }
 
 .navigation a:hover {
-  color: green;
-  text-decoration: underline;
+  color: var(--game-link-hover-color);
+
+  /* the line is not a text underline, it is a border! */
+
 }
 
+/* styling the main content of the page */
+.main-area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  /* the space between the cards
+  this is for flexbox */
+  gap: 10px;
+}
+
+/* this styling applies to every section of the page */
+/* these cards are children of main area */
 .page-area {
+  /* the max width is how we make sure these cards
+  are the same size */
+  max-width: 350px;
   padding: 20px;
-  border-bottom: 1px solid black;
+  border: 1px solid var(--game-page-background-color);
+  border-radius: 6px;
+
+  /* define the margins around each card on the page */
+  margin-bottom: 20px;
 }
 
-img {
-  max-width: 300px;
+.game-showcase-body img {
+  max-width: 200px;
   display: block;
 }
 
