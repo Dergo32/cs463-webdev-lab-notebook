@@ -259,3 +259,28 @@ point to its existence */
 /* a great thing about grids is that they resize responsively */
 
 /* Exercise 04 - CSS Grid Areas */
+
+/* we can assign grid areas before we actually create the grid */
+
+
+/* settings for all screen sizes */
+.grid-area-container {
+  display: grid;
+  gap: 0.5rem;
+
+  /* margin around the entire grid */
+  margin: 0.5rem;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(9, 1fr);
+}
+
+.grid-area-container .article {
+  grid-row: span 3;
+}
+
+.grid-area-container .section {
+  grid-row: span 3;
+}
+
+
