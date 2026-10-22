@@ -190,4 +190,72 @@ of the header */
 
 /* Exercise 03 - CSS Grid */
 
+/* tip: typically, grids have 12 columns
+because 12 divdes really well by one, two, three, four, and six
+it is a very useful number */
+.grid-container {
+  display: grid;
+
+  /* styling Caterina uses in her video */
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(7, 100px);
+  gap: 0.4rem;
+
+  /* add a margin around the entire grid */
+  margin: 0.4rem;
+}
+
+/* note: if using coordinates to define start and end, 
+grids start at 1, NOT 0 */
+
+/* header */
+.grid-container .item1 {
+  grid-column: span 6;
+}
+
+.grid-container .item2 {
+  /* we use coordinates to define the size of this card 
+  to our liking */
+
+  /* from column 1 to column 5 */
+  grid-column: 1 / 5;
+
+  /* from row 2 downwards to row 6 */
+  grid-row: 2 / 6;
+}
+
+/* styling used by Caterina in her video
+she changed the grid to be 6 columns to show how nicely it divides */
+.grid-container .item4,
+.grid-container .item5 {
+  grid-column: span 2;
+}
+
+/* item 3 stretched next to item 2 */
+.grid-container .item3 {
+  grid-column: span 2;
+  grid-row: span 4;
+}
+
+/* note: on a real page, you probably will want to have a media query
+that would show item 6 for certain situations, or else there's no
+point to its existence */
+.grid-container .item6 {
+  display: none;
+}
+
+/* we manually move item 7 by setting its start coordinates */
+/* this is better because it doesn't force a certain size */
+.grid-container .item7 {
+  grid-column: 1 / 3;
+  grid-row-start: 6;
+}
+
+/* footer */
+.grid-container .item8 {
+  grid-column: span 6;
+}
+
+/* a great thing about grids is that they resize responsively */
+
 /* Exercise 04 - CSS Grid Areas */
