@@ -22,14 +22,17 @@
     <header class="top-of-page">
       <!-- this is the navigation bar -->
       <!-- the list of links is replaced by a navbar element from bootstrap! -->
-      <nav class="navbar navbar-expand-lg bg-light">
 
+      <!-- navbar dark makes the text white, and bg dark makes the background of the element dark -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <!-- this container makes sure everything is on the same line -->
+        <!-- everything in bootstrap is in a grid, and all content is inside their own container -->
         <div class="container-fluid">
           <!-- navbar brand image or page title is over here; it is an anchor to the home page -->
           <a class="navbar-brand" href="#">Simple Game Showcase</a>
 
-          <!-- this is the button that expands the hamburger menu -->
+          <!-- hamburger menu button -->
+          <!-- the data-bs attributes are all behaviors that are implemented using javascript -->
           <button
             class="navbar-toggler"
             type="button"
@@ -42,13 +45,20 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
+          <!-- the button span is the icon used for the hamburger menu button -->
+          <!-- remember bootstrap includes its own library of free to use high quality icons -->
+
           <!-- the collapse is the menu, as a div, that is shown by the hamburger menu -->
-           <!-- this same div is also shown expanded when there is no hamburger menu needed -->
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- this same div is also shown expanded when there is no hamburger menu needed -->
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarSupportedContent"
+          >
             <!-- unordered list of links -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- had to remove me-auto in order to justify the list to the other side -->
+            <ul class="navbar-nav mb-2 mb-lg-0">
               <!-- each link is still a list item, but with the nav item class -->
-               <!-- bigger websites would have an active sub class for one of these items
+              <!-- bigger websites would have an active sub class for one of these items
                 that tells the user what page they are on -->
               <li class="nav-item">
                 <a class="nav-link" href="#dino">Dino Game</a>
@@ -73,33 +83,32 @@
      in case the browser doesn't load them -->
     <main class="main-area">
       <!-- I would say this is a section of an article rather than an article itself -->
-      <section id="dino" class="page-area">
-        <h2>Chrome Dino Game</h2>
-        <p>
-          The Chrome Dino Game was released in 2014 by Google. It appears when
-          users lose internet connection in the Chrome browser. Players control
-          a small dinosaur that runs endlessly, jumping over obstacles like
-          cacti and dodging flying enemies.
-        </p>
-        <p>
-          Many people describe the game as simple but addictive. It has become
-          an iconic offline pastime and is praised for turning a frustrating
-          situation into something fun.
-        </p>
 
-        <!-- this whole element is a figure, with a caption -->
-        <figure class="card-figure">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Chromium_T-Rex-error-offline.svg/250px-Chromium_T-Rex-error-offline.svg.png"
-            alt="An image of the video game character Chrome Dino as it appears in the Chrome Dino Game."
-            width="250"
-            height="160"
-          />
-          <figcaption>The Chrome Dino running through the desert.</figcaption>
-        </figure>
+      <!-- this is a card in bootstrap. Notice how the layout is pretty self explanatory -->
+      <!-- this is a section instead of a div for better semantics -->
+      <section class="card" id="dino" style="width: 18rem">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Chromium_T-Rex-error-offline.svg/250px-Chromium_T-Rex-error-offline.svg.png"
+          class="card-img-top"
+          alt="An image of the video game character Chrome Dino running through the desert, as it appears in the Chrome Dino Game."
+          width="250"
+          height="160"
+        />
+        <div class="card-body">
+          <h2 class="card-title">Chrome Dino Game</h2>
+          <p class="card-text">
+            The Chrome Dino Game was released in 2014 by Google. It appears when
+            users lose internet connection in Chrome.
+          </p>
+          <p class="card-text">
+            Players control a dinosaur that jumps over obstacles and avoids
+            enemies. It's simple, fun, and addictive.
+          </p>
+
+          <!-- never use an anchor as a button, it's bad for accessibility -->
+          <button type="button" class="btn btn-primary">Learn More</button>
+        </div>
       </section>
-
-      <br />
 
       <section id="goose" class="page-area">
         <h2>Untitled Goose Game</h2>
@@ -152,7 +161,8 @@
       </section>
     </main>
 
-    <footer class="bottom-of-page">
+    <!-- py-3 adds padding. it is shorthand for: padding on the y axis -->
+    <footer class="bg-dark text-white text-center py-3">
       <p>© 2026 Simple Game Showcase</p>
     </footer>
   </body>
