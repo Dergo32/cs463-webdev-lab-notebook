@@ -75,90 +75,107 @@
       </nav>
 
       <!-- bootstrap makes text styling very easy! -->
-      <h1 class="text-center m-4">Simple Game Showcase</h1>
+       <!-- m 5 is adding a margin all around the text -->
+      <h1 class="text-center m-5">Simple Game Showcase</h1>
     </header>
 
-    <!-- main part of the webpage, not just a section -->
+    <!-- BOOTSTRAP GRIDS REQUIRE A CONTAINER AS A PARENT -->
     <!-- NOTE: Always remember to set a width and height for all your images
      in case the browser doesn't load them -->
-    <main class="main-area">
+     <!-- my 5 is adding a margin of spacer * 5 only on the y axis -->
+    <main class="container my-5">
       <!-- I would say this is a section of an article rather than an article itself -->
 
-      <!-- this is a card in bootstrap. Notice how the layout is pretty self explanatory -->
-      <!-- this is a section instead of a div for better semantics -->
-      <section class="card" id="dino" style="width: 18rem">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Chromium_T-Rex-error-offline.svg/250px-Chromium_T-Rex-error-offline.svg.png"
-          class="card-img-top"
-          alt="An image of the video game character Chrome Dino running through the desert, as it appears in the Chrome Dino Game."
-          width="250"
-          height="160"
-        />
-        <div class="card-body">
-          <h2 class="card-title">Chrome Dino Game</h2>
-          <p class="card-text">
-            The Chrome Dino Game was released in 2014 by Google. It appears when
-            users lose internet connection in Chrome.
-          </p>
-          <p class="card-text">
-            Players control a dinosaur that jumps over obstacles and avoids
-            enemies. It's simple, fun, and addictive.
-          </p>
+      <div class="row">
+        <!-- on a smaller screen, only show two cards side by side -->
+         <!-- on wider screen show the cards all in a row -->
 
-          <!-- never use an anchor as a button, it's bad for accessibility -->
-          <button type="button" class="btn btn-primary">Learn More</button>
-        </div>
-      </section>
+         <!-- from docs: When you need equal height, add class h-100 to the cards. If you want equal heights by default, you can set $card-height: 100% in Sass. -->
 
-      <section id="goose" class="page-area">
-        <h2>Untitled Goose Game</h2>
-        <p>
-          Untitled Goose Game was released in 2019 by House House. It is a
-          puzzle-stealth game where players control a mischievous goose causing
-          chaos in a quiet village.
-        </p>
-        <p>
-          The game received widespread praise for its humor, unique concept, and
-          charming design. Players especially enjoyed the freedom to annoy
-          villagers in creative ways.
-        </p>
+        <section class="col-md-6 col-lg-4" id="dino">
+          <div class="card h-100">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Chromium_T-Rex-error-offline.svg/250px-Chromium_T-Rex-error-offline.svg.png"
+              class="card-img-top img-fluid mt-5 mb-3 d-block w-50 mx-auto"
+              alt="An image of the video game character Chrome Dino running through the desert, as it appears in the Chrome Dino Game."
+              width="200"
+              height="200"
+            />
+            <div class="card-body text-center">
+              <h2 class="card-title mb-4">Chrome Dino Game</h2>
+              <p class="text-start">
+                The Chrome Dino Game was released in 2014 by Google. It appears
+                when users lose internet connection in Chrome.
+              </p>
+              <p class="text-start mb-4">
+                Players control a dinosaur that jumps over obstacles and avoids
+                enemies. It's simple, fun, and addictive.
+              </p>
 
-        <figure class="card-figure">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/en/b/b2/Untitled_Goose_Game_Cover_art.jpg"
-            alt="An image of the game cover art for the Untitled Goose Game."
-            width="200"
-            height="300"
-          />
-          <figcaption>The mischievous goose causing trouble.</figcaption>
-        </figure>
-      </section>
+              <!-- never use an anchor as a button, it's bad for accessibility -->
+              <button type="button" class="btn btn-primary">Learn More</button>
+            </div>
+          </div>
+        </section>
 
-      <br />
+        <!-- goose card -->
+        <section class="col-md-6 col-lg-4" id="goose">
+          <div class="card h-100">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/b/b2/Untitled_Goose_Game_Cover_art.jpg"
+              class="card-img-top img-fluid mt-3 mb-3 d-block w-50 mx-auto"
+              alt="An image of the game cover art for the Untitled Goose Game."
+              width="200"
+              height="200"
+            />
+            <div class="card-body text-center">
+              <h2 class="card-title mb-4">Untitled Goose Game</h2>
+              <p class="text-start">
+                The Chrome Dino Game was released in 2014 by Google. It appears
+                when users lose internet connection in Chrome.
+              </p>
+              <p class="text-start mb-4">
+                Players control a dinosaur that jumps over obstacles and avoids
+                enemies. It's simple, fun, and addictive.
+              </p>
 
-      <section id="flappy" class="page-area">
-        <h2>Flappy Bird</h2>
-        <p>
-          Flappy Bird was released in 2013 by Dong Nguyen. It is a mobile game
-          where players tap the screen to keep a bird flying between pipes
-          without hitting them.
-        </p>
-        <p>
-          The game became extremely popular for its difficulty and simplicity.
-          Many players found it frustrating yet addictive, leading to viral
-          success before it was eventually removed.
-        </p>
+              <!-- never use an anchor as a button, it's bad for accessibility -->
+              <button type="button" class="btn btn-primary">Learn More</button>
+            </div>
+          </div>
+        </section>
 
-        <figure class="card-figure">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png"
-            alt="An image of the video game character Flappy Bird navigating through pipes."
-            width="200"
-            height="200"
-          />
-          <figcaption>The iconic Flappy Bird navigating pipes.</figcaption>
-        </figure>
-      </section>
+        <!-- flappy card -->
+        <section class="col-md-6 col-lg-4" id="flappy">
+         <div class="card h-100">
+            <!-- image fluid lets the image dimensions be responsive to look like a square -->
+            <!-- d block w 50 mx auto resizes the image to fit inside the card better -->
+             <!-- card img top puts the image at the top -->
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png"
+              class="card-img-top img-fluid mt-3 mb-3 d-block w-50 mx-auto"
+              alt="An image of the video game character Flappy Bird navigating through pipes."
+              width="200"
+              height="200"
+            />
+            <!-- we need to keep the body text left aligned but everything else centered -->
+            <div class="card-body text-center">
+              <h2 class="card-title mb-4">Flappy Bird</h2>
+              <p class="text-start">
+                The Chrome Dino Game was released in 2014 by Google. It appears
+                when users lose internet connection in Chrome.
+              </p>
+              <p class="text-start mb-4">
+                Players control a dinosaur that jumps over obstacles and avoids
+                enemies. It's simple, fun, and addictive.
+              </p>
+
+              <!-- never use an anchor as a button, it's bad for accessibility -->
+              <button type="button" class="btn btn-primary">Learn More</button>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
     <!-- py-3 adds padding. it is shorthand for: padding on the y axis -->
