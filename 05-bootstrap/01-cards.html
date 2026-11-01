@@ -75,29 +75,29 @@
       </nav>
 
       <!-- bootstrap makes text styling very easy! -->
-       <!-- m 5 is adding a margin all around the text -->
+      <!-- m 5 is adding a margin all around the text -->
       <h1 class="text-center m-5">Simple Game Showcase</h1>
     </header>
 
     <!-- BOOTSTRAP GRIDS REQUIRE A CONTAINER AS A PARENT -->
     <!-- NOTE: Always remember to set a width and height for all your images
      in case the browser doesn't load them -->
-     <!-- my 5 is adding a margin of spacer * 5 only on the y axis -->
+    <!-- my 5 is adding a margin of spacer * 5 only on the y axis -->
     <main class="container my-5">
       <!-- I would say this is a section of an article rather than an article itself -->
 
       <div class="row">
         <!-- on a smaller screen, only show two cards side by side -->
-         <!-- on wider screen show the cards all in a row -->
+        <!-- on wider screen show the cards all in a row -->
 
-         <!-- from docs: When you need equal height, add class h-100 to the cards. If you want equal heights by default, you can set $card-height: 100% in Sass. -->
+        <!-- from docs: When you need equal height, add class h-100 to the cards. If you want equal heights by default, you can set $card-height: 100% in Sass. -->
 
         <section class="col-md-6 col-lg-4" id="dino">
           <div class="card h-100">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Chromium_T-Rex-error-offline.svg/250px-Chromium_T-Rex-error-offline.svg.png"
               class="card-img-top img-fluid mt-5 mb-3 d-block w-50 mx-auto"
-              alt="An image of the video game character Chrome Dino running through the desert, as it appears in the Chrome Dino Game."
+              alt="An image of the video game character Chrome Dino as it appears in the Chrome Dino Game."
               width="200"
               height="200"
             />
@@ -113,7 +113,15 @@
               </p>
 
               <!-- never use an anchor as a button, it's bad for accessibility -->
-              <button type="button" class="btn btn-primary">Learn More</button>
+              <!-- the data attributes are what links the button to the modal that it opens -->
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#learn-more-modal"
+              >
+                Learn More
+              </button>
             </div>
           </div>
         </section>
@@ -140,17 +148,24 @@
               </p>
 
               <!-- never use an anchor as a button, it's bad for accessibility -->
-              <button type="button" class="btn btn-primary">Learn More</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#learn-more-modal"
+              >
+                Learn More
+              </button>
             </div>
           </div>
         </section>
 
         <!-- flappy card -->
         <section class="col-md-6 col-lg-4" id="flappy">
-         <div class="card h-100">
+          <div class="card h-100">
             <!-- image fluid lets the image dimensions be responsive to look like a square -->
             <!-- d block w 50 mx auto resizes the image to fit inside the card better -->
-             <!-- card img top puts the image at the top -->
+            <!-- card img top puts the image at the top -->
             <img
               src="https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png"
               class="card-img-top img-fluid mt-3 mb-3 d-block w-50 mx-auto"
@@ -171,7 +186,14 @@
               </p>
 
               <!-- never use an anchor as a button, it's bad for accessibility -->
-              <button type="button" class="btn btn-primary">Learn More</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#learn-more-modal"
+              >
+                Learn More
+              </button>
             </div>
           </div>
         </section>
@@ -182,5 +204,42 @@
     <footer class="bg-dark text-white text-center py-3">
       <p>© 2026 Simple Game Showcase</p>
     </footer>
+
+    <!-- modals can be added anywhere in the html. They are they're own area basically -->
+    <!-- Modal that drops from the top of the page and dismisses anytime the user clicks the gray area -->
+    <div
+      class="modal fade"
+      id="learn-more-modal"
+      aria-labelledby="learn-more-modal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- the title -->
+            <h1 class="modal-title fs-5">Chrome Dino Game</h1>
+            <!-- the x button in the corner -->
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- the body content -->
+          <div class="modal-body">
+            <p>
+              The Chrome Dino Game was released in 2014 by Google. It appears
+              when users lose internet connection in Chrome.
+            </p>
+            <p>
+              Players control a dinosaur that jumps over obstacles and avoids
+              enemies. It's simple, fun, and addictive.
+            </p>
+          </div>
+          <!-- this modal doesn't have a footer, but there can be one -->
+        </div>
+      </div>
+    </div>
   </body>
 </html>
