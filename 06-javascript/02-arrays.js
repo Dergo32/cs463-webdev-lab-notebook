@@ -1,3 +1,13 @@
+// Name: Derrick Tran
+//  November 12, 2026
+
+// Description: This file demonstrates how to work with arrays in JavaScript
+// using array functions that are built in for arrays
+
+// there are several built in methods that make processing arrays easy
+// this file demonstrates forEach(), filter(), sort(), map(), includes()
+// and counting numbers of similar array elements using reduce()
+
 const pokemons = [
   { id: 1, name: 'Bulbasaur', types: ['Grass', 'Poison'] },
   { id: 2, name: 'Ivysaur', types: ['Grass', 'Poison'] },
@@ -21,10 +31,32 @@ const pokemons = [
   { id: 20, name: 'Raticate', types: ['Normal'] },
 ];
 
-// Add your code here for: forEachPokemon
+
+// demonstration of array forEach() function
+// forEach() is a very easy built in way to iterate through every element in an array
+// one by one
+function forEachPokemon ()
+{
+  // the forEach() function iterates through an array and performs the specified action 
+  // for every element
+  // the item variable represents an element of the array
+  pokemons.forEach((item) => 
+    {
+      // join() is an array function that adds all elements of an array into a string
+      // and then separates them by the string you put as the argument
+      console.log(`#${item.id} ${item.name} - ${item.types.join(' / ')}`);
+    });
+
+  // note: to get the correct formatting we are using string interpolation
+  // the backticks are called template literals
+  // using this we can easily access variables similar to command substitution in bash
+  // https://www.w3schools.com/js/js_string_templates.asp
+}
 
 console.group('=========== forEachPokemon =========== ');
 console.log(forEachPokemon());
+
+// The output should look like this:
 // #1 Bulbasaur - Grass / Poison
 // #2 Ivysaur - Grass / Poison
 // #3 Venusaur - Grass / Poison
@@ -45,9 +77,33 @@ console.log(forEachPokemon());
 // #18 Pidgeot - Normal / Flying
 // #19 Rattata - Normal
 // #20 Raticate - Normal
+
 console.groupEnd();
 
-// Add your code here for: filterPokemons
+// filterPokemons() returns an array of all the Pokémons of that type
+// this demonstrates using filter() to only return certain matching elements from an array
+// filterType: string that specifies what type of Pokemon to filter for
+function filterPokemons(filterType) {
+  // NOTE: for more about these functions, see the functional javascript slides for CS 463
+  // filter() takes an array and returns another array with only elements that match
+  // the argument. The argument is a small function that contains a condition and returns true or false
+  // for that element.
+  const result = pokemons.filter(item => item.types.includes(filterType));
+
+  // filter just returns the matching elements with no changes
+  // we want to change it, so we use map
+  // map iterates through every element and applies a change to that element
+  // https://www.w3schools.com/jsref/jsref_map.asp
+  const result_mapped = result.map(item => item.name);
+
+  // don't forget to sort in alphabetical order
+  // because the array is just strings we don't need to specify a sort function
+  const result_sorted = result_mapped.sort();
+
+  // we are using includes() because the types member is an array itself. includes() returns true 
+  // if the argument is inside that array
+  return result_sorted;
+}
 
 console.group('=========== filterPokemons =========== ');
 console.log(filterPokemons('Fire'));
