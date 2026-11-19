@@ -198,12 +198,16 @@ function reducePokemons() {
         accumulator[type]++;
       } else {
         // first time seeing this type, so start its count at 1
+        // you can do this in javascript, it basically 
+        // implicitly creates the new type 
+        // as a new key in the object, with a value of 1
         accumulator[type] = 1;
       }
     });
 
     // strange typeerror issue was because i put this return inside the forEach() block
     // when it is actually supposed to go here
+    // we need an explicit return since this is a multi-line function
     return accumulator;
   }, {});
 

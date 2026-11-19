@@ -1,16 +1,55 @@
+<!-- Demonstration of building a webpage that fetches data
+ and creates elements (cards) with that data
+ 
+ Name: Derrick Tran
+ November 18, 2026 
+ 
+ Third party API used is PokeAPI: https://pokeapi.co/
+ -->
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="04-fetch.css" />
+    <!-- add our javascript file too; always make sure its execution is deferred 
+     until the webpage is fully loaded -->
+    <script defer src="04-fetch.js"></script>
     <title>JavaScript Exercise 04 - Fetch</title>
+
   </head>
   <body>
     <main>
+      <!-- Use the loader.gif provided in the images/ folder -->
+
       <nav class="navbar">
         <h1 class="brand-logo">Pokedex</h1>
       </nav>
-      <!-- Use the loader.gif provided in the images/ folder -->
+
+      <!-- tip: when making a website like this, it's always best to just focus 
+       on fetching and styling one data object instead of 
+       thinking about how to handle ALL of them
+       Don't overwhelm yourself -->
+
+      <section class="pokemonArea">
+        <div class="loadingContainer">
+          <!-- the loading icon -->
+          <img
+            src="/images/loader.gif"
+            alt="loading icon"
+            width="60"
+            height="60"
+          />
+          <p class="loadingIndicator">Loading...</p>
+        </div>
+
+        <!-- this div contains the actual pokemon info cards -->
+        <!-- the javascript appends pokemon cards into here! -->
+        <div class="poke-list">
+          <!-- javascript appends elements to here -->
+        </div>
+      </section>
     </main>
   </body>
 </html>
