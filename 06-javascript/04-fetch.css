@@ -37,6 +37,7 @@ body {
 .poke-list {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* styling for the card containers */
@@ -51,6 +52,11 @@ body {
   
   text-align: center;
   background-color: var(--main-light-color);
+}
+
+/* simple background hover effect */
+.pokemonCard:hover {
+  background-color: var(--pokemon-yellow);
 }
 
 /* styling for each of the pokemon type divs */
