@@ -28,6 +28,22 @@ body {
   padding: 1rem;
 }
 
+/* center the loading icon */
+.loadingContainer {
+  display: flex;
+
+  /* this fixes the elements being put in horizontal order */
+  flex-direction: column;
+
+  /* use this instead of align content */
+  /* we want the children to be aligned, not the container */
+  align-items: center;
+  justify-content: center;
+
+  /* none of this works unless we set a specific height */
+  height: 80vh;
+}
+
 .loadingIndicator, .errorMessage {
   color: var(--main-light-color);
 }

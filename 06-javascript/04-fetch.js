@@ -9,16 +9,16 @@ const pokemonColors = {
   electric: '#F7D02C',
   grass: '#7AC74C',
   ice: '#96D9D6',
-  fighting: '#C22E28',
+  fighting: '#d28a87',
   poison: '#ea7ce8',
   ground: '#E2BF65',
   flying: '#A98FF3',
   psychic: '#F95587',
   bug: '#A6B91A',
   rock: '#B6A136',
-  ghost: '#735797',
-  dragon: '#6F35FC',
-  dark: '#705746',
+  ghost: '#b699dd',
+  dragon: '#c191e5',
+  dark: '#918278',
   steel: '#B7B7CE',
   fairy: '#D685AD',
 };
@@ -28,9 +28,6 @@ const pokemonColors = {
 // argument: the entire json object containing the pokeAPI data
 function createElement(data)
 {
-  // when writing a function like this, focus on correctly retrieving the data first
-  // and worry about styling after
-
   // NOTE: you can rename variables from an API by just doing this, if you want
   // Rename name to pokemonName, using destructuring
   // const { name : pokemonName } = data.name;
@@ -88,11 +85,15 @@ function createElement(data)
   return card;
 }
 
+// unused function
 // fetch api demonstration
 // arguments: url is the url of the specific pokemon to fetch
 async function loadSinglePokemon(url)
 {
-  // this function only loads a single object as a demonstration
+  // this function only loads a single object
+
+  // when writing a function like this, focus on correctly retrieving the data first
+  // and worry about styling after
 
   // we have two ways to do this: promise, or async await
   // async await is recommended unless you have a specific reason to use promise
@@ -135,9 +136,8 @@ async function loadSinglePokemon(url)
   }
 };
 
-// fetch api getting array of objects from an API
-// arguments: num_pokemon is how many pokemon objects to fetch
-// and offset is what pokemon id to start at
+// unused function
+// do promise.all() instead of this; see comments
 async function loadArray(num_pokemon, offset)
 {
   // we have two ways to do this: promise, or async await
@@ -162,11 +162,15 @@ async function loadArray(num_pokemon, offset)
 
     // console.log(pokemon_array);
 
+    // technically this does work, but doing it this way causes two issues:
+    // Out-of-order cards: Pokemon might show up out of order if some requests take longer than others
+    // Page flickering / layout shifting: Cards pop in one by one
     pokemon_array.results.forEach((item) => 
     {
         loadSinglePokemon(item.url);
     })
 
+    // see the promise.all() implementation for a better way of loading data
 
   } catch(error)
   {
@@ -186,14 +190,14 @@ async function loadArray(num_pokemon, offset)
   }
 };
 
-// this is an alternative way of loading all the pokemon
-// that demonstrates using Promise.all() and waiting for ALL of the Pokemon
-// objects to be fetched before doing anything
+// this is the best way of loading all the pokemon
+// we use Promise.all() and wait for ALL of the Pokemon
+// objects to be loaded before we start processing the objects
 async function promiseAllFetch(num_pokemon, offset)
 {
   const array_url = `https://pokeapi.co/api/v2/pokemon?limit=${num_pokemon}&offset=${offset}`;
 
-  const poke_list = querySelector('.poke-list');
+  const poke_list = document.querySelector('.poke-list');
 
   try{
     const response = await fetch(array_url);
@@ -201,18 +205,102 @@ async function promiseAllFetch(num_pokemon, offset)
 
     pokemonList = json.results;
 
-    // here is using promise all to fetch all the objects in the array
-    const urlArray = pokemonList.map((item) => {
+    // here, all we are doing is just taking all of the http data
+    // and changing it to json format so javascript can understand it
+    const promiseArray = pokemonList.map((item) => {
       // this one line fetches the object data and parses it from http to json
       // this is already in a try block so we don't need another one
-      fetch(item.url).then((response) => response.json());
+      return fetch(item.url).then((response) => response.json())
+      .catch(error => console.log(`Error occured when mapping promise array: ${error}`));
     })
 
+      // a promise is a placeholder for a value that is not known yet
+      // promise.all() takes in an array of promises and waits for all of them to 
+      // be fulfilled
+
+      // during the map step, all the fetch requests were sent to the API
+      // but we still need to do promise.all() so we can be sure that all the API requests are processed
+      // before we start passing the data to other functions
+      // this also guarantees that the original order of the requests is kept
+      const dataArray = await Promise.all(promiseArray);
+
+      // process the data and append them to the dom
+      dataArray.forEach(pokemon => {
+        const new_card = createElement(pokemon);
+        poke_list.append(new_card);
+      })
+
   }catch{
+    // need to catch any errors that happen
+      console.error('Error fetching data from PokeAPI', error);
+
+      // show an error message
+      const errorMessage = document.createElement('p');
+      errorMessage.textContent = `Error fetching data from PokeAPI: ${error}`;
+      errorMessage.setAttribute('class', 'errorMessage');
+      poke_list.append(errorMessage);
 
   } finally {
     // executes no matter what
+    // get rid of the loading icon once loading is done
+    const loading_icon = document.querySelector('.loadingContainer');
+
+    if (loading_icon != null)
+    {
+      loading_icon.setAttribute('class', 'display-none');
+    }
   }
 }
 
-loadArray(100, 0);
+
+// this function is from 02-array.js with modifications
+// it filters through the array of pokemon and searches by name or type
+// returns the Pokemon objects that match the specified name or type
+// we make this case insensitive by converting the argument to all lower case
+// this function demonstrates filter() using multiple conditions
+// and the use of the some() array function
+function searchPokemons(searchQuery) {
+  // first, make sure query is lowercase so case used doesn't matter
+  const userSearch = searchQuery.toLowerCase();
+
+  // ISSUES:
+  // how to get array of pokemons from what is on the screen?
+  // need to set all NON-matching pokemons to display-none class
+  // need to display error message
+
+  // first, get a list of all the pokemon currently on the page
+  const card_array = document.querySelectorAll('.pokemonCard');
+
+  // filter needs to match name or type
+  // we can easily just add another condition to the filter,
+  // instead of doing two filters
+  const results = pokemons.filter((item) => {
+    // make the item name lowercase so its case doesn't matter
+    // then return true if the name includes the search query (exact match is too restrictive)
+    const name_is_match = item.name.toLowerCase().includes(userSearch);
+
+    // the some() function is an array function that returns true if ANY element in the array
+    // meets the condition inside it. We don't need to keep searching if there is an element that matches
+    // https://www.w3schools.com/jsref/jsref_some.asp <-- remember item type is an array!
+    const type_is_match = item.types.some((type) =>
+      type.toLowerCase().includes(userSearch),
+    );
+
+    // we just do an OR so we return true if either of the booleans are true
+    // OR returns true if either of these values is true. It's that easy.
+    return name_is_match || type_is_match;
+  });
+
+  // any pokemon not in the results array should be set to display-none
+
+  // instead of just returning an empty array, which would look weird and confusing
+  // to a user, we can send them this message
+  if (results.length === 0) {
+    return "There are no Pokemon matching name or type: " + searchQuery;
+  }
+
+  return results;
+}
+
+
+promiseAllFetch(25, 0);
