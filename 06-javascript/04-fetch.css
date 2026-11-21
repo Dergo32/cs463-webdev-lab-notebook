@@ -39,15 +39,16 @@ body {
   /* we want the children to be aligned, not the container */
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 
   /* none of this works unless we set a specific height */
   height: 80vh;
 }
 
-.loadingIndicator, .errorMessage {
+.loadingIndicator,
+.errorMessage {
   color: var(--main-light-color);
 }
-
 
 /* container that holds all the cards */
 .poke-list {
@@ -65,7 +66,7 @@ body {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-bottom: 2rem;
-  
+
   text-align: center;
   background-color: var(--main-light-color);
 }
@@ -88,4 +89,3 @@ body {
 .display-none {
   display: none;
 }
-
